@@ -9,7 +9,6 @@ namespace binaryTreeSearchEngine
     class BinarySearchTree
     {
         Node root;
-        int key;
         public BinarySearchTree()
         {
             root = null;
@@ -23,43 +22,43 @@ namespace binaryTreeSearchEngine
             }
             else
             {
-                Node current = root;
+                Node currentNode = root;
                 Node parent;
                 while (true)
                 {
-                    parent = current;
-                    if (data < current.data)
+                    parent = currentNode;
+                    if (data < currentNode.data)
                     {
-                        current = current.leftChild;
-                        if (current == null)
+                        currentNode = currentNode.leftChild;
+                        if (currentNode == null)
                         {
                             parent.leftChild = node;
                             break;
                         }
 
                     }
-                    else if (data > current.data)
+                    else if (data > currentNode.data)
                     {
-                        current = current.rightChild;
-                        if (current == null)
+                        currentNode = currentNode.rightChild;
+                        if (currentNode == null)
                         {
                             parent.rightChild = node;
                             break;
                         }
                     }
-                    else if (data == current.data && data < root.data)
+                    else if (data == currentNode.data && data < root.data)
                     {
-                        current = current.leftChild;
-                        if (current == null)
+                        currentNode = currentNode.leftChild;
+                        if (currentNode == null)
                         {
                             parent.leftChild = node;
                             break;
                         }
                     }
-                    else if (data == current.data && data > root.data)
+                    else if (data == currentNode.data && data > root.data)
                     {
-                        current = current.rightChild;
-                        if (current == null)
+                        currentNode = currentNode.rightChild;
+                        if (currentNode == null)
                         {
                             parent.rightChild = node;
                             break;
@@ -81,7 +80,7 @@ namespace binaryTreeSearchEngine
 
                 if (currentNode.rightChild == null)
                 {
-                    Console.WriteLine("Your value cannot be found in the binary tree");
+                    Console.WriteLine("Your value was not found.");
                     return;
                 }
                 currentNode = currentNode.rightChild;
@@ -91,7 +90,7 @@ namespace binaryTreeSearchEngine
             {
                 if (currentNode.leftChild == null)
                 {
-                    Console.WriteLine("Your value cannot be found in the binary tree");
+                    Console.WriteLine("Your value was not found.");
                     return;
                 }
                 currentNode = currentNode.leftChild;
@@ -99,11 +98,11 @@ namespace binaryTreeSearchEngine
             }
             else if (data == currentNode.data)
             {
-                Console.WriteLine("Your value was found!");
+                Console.WriteLine("Your value of: " + data + " was found!");
             }
             else
             {
-                Console.WriteLine("Your value cannot be found in the binary tree");
+                Console.WriteLine("Your value cannot be found.");
             }
 
         }
